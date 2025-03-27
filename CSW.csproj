@@ -1,0 +1,676 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnitTestAdapter.2.3.0\build\NUnitTestAdapter.props" Condition="Exists('..\packages\NUnitTestAdapter.2.3.0\build\NUnitTestAdapter.props')" />
+  <Import Project="..\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.props" Condition="Exists('..\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2B8A377F-4548-4E8B-8239-C3189A4F55B8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CSW</RootNamespace>
+    <AssemblyName>CSW</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Common\DataBase\LSPDatabase.cs" />
+    <Compile Include="Common\DataBase\MIDBDatabase.cs" />
+    <Compile Include="Common\DataBase\UNICADatabase.cs" />
+    <Compile Include="Common\Email\EmailVerification.cs" />
+    <Compile Include="Common\Email\HtmlUtilities.cs" />
+    <Compile Include="Common\Excel\TestData.cs" />
+    <Compile Include="Common\Others\CommonFunctions.cs" />
+    <Compile Include="Common\Others\CSWData.cs" />
+    <Compile Include="Common\Others\KeyRepository.cs" />
+    <Compile Include="Common\Services\APIRequests\AddBenefeciary.cs" />
+    <Compile Include="Common\Services\APIRequests\AddEFT.cs" />
+    <Compile Include="Common\Services\APIRequests\ClassSurrenderValue.cs" />
+    <Compile Include="Common\Services\APIRequests\CyberFraudIndicator.cs" />
+    <Compile Include="Common\Services\APIRequests\DeleteEFT.cs" />
+    <Compile Include="Common\Services\APIRequests\GenerateToken.cs" />
+    <Compile Include="Common\Services\APIRequests\GetRateResult.cs" />
+    <Compile Include="Common\Services\APIRequests\Payment_EFT.cs" />
+    <Compile Include="Common\Services\APIRequests\SearchUserInfo.cs" />
+    <Compile Include="Common\Services\APIRequests\UpdatePartyPayFrequency.cs" />
+    <Compile Include="Common\Services\APIRequests\UpdatePartyTransaction.cs" />
+    <Compile Include="Common\Services\APIRequests\UserAccountRegistration.cs" />
+    <Compile Include="Common\Services\RestServices.cs" />
+    <Compile Include="Drivers\AccountInformationDriver.cs" />
+    <Compile Include="Drivers\BeneficiariesDriver.cs" />
+    <Compile Include="Drivers\ChangePayorDriver.cs" />
+    <Compile Include="Drivers\DatabaseVerificationDriver.cs" />
+    <Compile Include="Drivers\DocumentsCenterDriver.cs" />
+    <Compile Include="Drivers\EditInsuredDriver.cs" />
+    <Compile Include="Drivers\EmailVerificationDriver.cs" />
+    <Compile Include="Drivers\FieldVerificationDriver.cs" />
+    <Compile Include="Drivers\FISDriver.cs" />
+    <Compile Include="Drivers\InvoicePDFDriver.cs" />
+    <Compile Include="Drivers\ProtectProfileDriver.cs" />
+    <Compile Include="Drivers\ResetPasswordDriver.cs" />
+    <Compile Include="Drivers\LoginDriver.cs" />
+    <Compile Include="Drivers\ContactInfomationDriver.cs" />
+    <Compile Include="Drivers\HomeDriver.cs" />
+    <Compile Include="Drivers\PaperlessSettingsDriver.cs" />
+    <Compile Include="Drivers\Riders_ExchangesDriver.cs" />
+    <Compile Include="Drivers\SecureDocUploadDriver.cs" />
+    <Compile Include="Drivers\ServiceVerificationDriver.cs" />
+    <Compile Include="Drivers\_MainDriver.cs" />
+    <Compile Include="Drivers\OneTimePaymentDriver.cs" />
+    <Compile Include="Drivers\PaymentsDriver.cs" />
+    <Compile Include="Drivers\ProcessFlowDriver.cs" />
+    <Compile Include="Drivers\TestPreRequisites.cs" />
+    <Compile Include="Drivers\UserRegistrationDriver.cs" />
+    <Compile Include="PageObjects\Coverage\MyBeneficiariesPage.cs" />
+    <Compile Include="PageObjects\Email\EmailInformation.cs" />
+    <Compile Include="PageObjects\External Applications\ALIP.cs" />
+    <Compile Include="PageObjects\External Applications\Exchanges.cs" />
+    <Compile Include="PageObjects\External Applications\FISPage.cs" />
+    <Compile Include="PageObjects\External Applications\ProcessFlow.cs" />
+    <Compile Include="PageObjects\External Applications\ProfileMaintenance.cs" />
+    <Compile Include="PageObjects\Coverage\DetailsPage.cs" />
+    <Compile Include="PageObjects\External Applications\RiderPage.cs" />
+    <Compile Include="PageObjects\Functions\InvoicePDF.cs" />
+    <Compile Include="PageObjects\Functions\ValidatePDF.cs" />
+    <Compile Include="PageObjects\Home\HomePage.cs" />
+    <Compile Include="PageObjects\Coverage\SummaryPage.cs" />
+    <Compile Include="PageObjects\Login\LoginPage.cs" />
+    <Compile Include="PageObjects\Registration\AccountAlreadyExistsPage.cs" />
+    <Compile Include="PageObjects\Registration\ConfirmContractNumberPage.cs" />
+    <Compile Include="PageObjects\Registration\ForgotPage.cs" />
+    <Compile Include="PageObjects\Registration\OneTimeVerificationPage.cs" />
+    <Compile Include="PageObjects\Registration\ProtectProfilePage.cs" />
+    <Compile Include="PageObjects\Registration\ThankYouPage.cs" />
+    <Compile Include="PageObjects\Registration\EmailVerificationPage.cs" />
+    <Compile Include="PageObjects\Registration\VerifyYourDetailsPage.cs" />
+    <Compile Include="PageObjects\Registration\ConfirmEmailPage.cs" />
+    <Compile Include="PageObjects\Registration\CreateYourLoginPage.cs" />
+    <Compile Include="PageObjects\Registration\WeAreSorryPage.cs" />
+    <Compile Include="PageObjects\Payments\ChangePayorPage.cs" />
+    <Compile Include="PageObjects\Payments\EditInsuredPage.cs" />
+    <Compile Include="PageObjects\Payments\AutoPayPage.cs" />
+    <Compile Include="PageObjects\Payments\PaymentHistoryPage.cs" />
+    <Compile Include="PageObjects\Payments\ManagePaymentsPage.cs" />
+    <Compile Include="PageObjects\Payments\OneTimePaymentPage.cs" />
+    <Compile Include="PageObjects\Profile\AccountInformationPage.cs" />
+    <Compile Include="PageObjects\Profile\ContactInformationPage.cs" />
+    <Compile Include="PageObjects\Login\ResetPasswordPage.cs" />
+    <Compile Include="PageObjects\Profile\DocumentCenterPage.cs" />
+    <Compile Include="PageObjects\Profile\PaperlessSettingsPage.cs" />
+    <Compile Include="PageObjects\Profile\PreferenceManagementPage.cs" />
+    <Compile Include="PageObjects\Registration\RegistrationGrief.cs" />
+    <Compile Include="PageObjects\SecureDocUpload\ProcessPolicyInfoPage.cs" />
+    <Compile Include="PageObjects\SecureDocUpload\MultiContractPage.cs" />
+    <Compile Include="PageObjects\SecureDocUpload\OptionalEmailPage.cs" />
+    <Compile Include="PageObjects\SecureDocUpload\QuickLinksPage.cs" />
+    <Compile Include="PageObjects\SecureDocUpload\RelatedToPage.cs" />
+    <Compile Include="PageObjects\SecureDocUpload\ThankYouPage.cs" />
+    <Compile Include="PageObjects\SecureDocUpload\UploadFilePage.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\DataMaintenanceTestSuite.cs" />
+    <Compile Include="Tests\RegressionTestSuite.cs" />
+    <Compile Include="Tests\SmokeTestSuite.cs" />
+    <Compile Include="Tests\TestSetup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="AngleSharp, Version=1.1.2.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
+      <HintPath>..\packages\AngleSharp.1.1.2\lib\net472\AngleSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Bogus, Version=35.6.1.0, Culture=neutral, PublicKeyToken=fa1bb3f3f218129a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\\nyp-etqaro1-cj\AutomationShared\TAMPA\SeleniumProjects\NYLDWebFramework\Package\Bogus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ETQAMobileFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\ETQAMobileFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.barcodes, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\itext7.7.1.16\lib\net45\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\itext7.7.1.16\lib\net45\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\itext7.7.1.16\lib\net45\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\itext7.7.1.16\lib\net45\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\itext7.7.1.16\lib\net45\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\itext7.7.1.16\lib\net45\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\itext7.7.1.16\lib\net45\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\itext7.7.1.16\lib\net45\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\itext7.7.1.16\lib\net45\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Microsoft.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Registry, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Registry.5.0.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="NYLDWebAutomationFramework, Version=5.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\\nyp-etqaro1-cj\AutomationShared\TAMPA\SeleniumProjects\NYLDWebFramework\NYLDWebAutomationFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenDialogWindowHandler, Version=0.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenDialogWindowHandler.0.0.0.1\lib\net45\OpenDialogWindowHandler.dll</HintPath>
+    </Reference>
+    <Reference Include="PasswordDecrypter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\PasswordDecrypter.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.2.1.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\RestSharp.106.2.1\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SeleniumExtras.PageObjects, Version=4.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\SeleniumExtras.PageObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="SeleniumExtras.WaitHelpers, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\SeleniumExtras.WaitHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.License, Version=1.3.6.20, Culture=neutral, PublicKeyToken=b1144360237c8b3f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Spire.PDF.3.9.124\lib\net35\Spire.License.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Pdf, Version=3.9.124.2020, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Spire.PDF.3.9.124\lib\net35\Spire.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.6.0\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Pipelines, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.9.0.0\lib\net462\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.6.0\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.6.0\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.0\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.AccessControl, Version=6.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.6.0.1\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.9.0.0\lib\net462\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.9.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.9.0.0\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.6.0\lib\net462\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Presentation" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebDriver, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.4.27.0\lib\netstandard2.0\WebDriver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.4.27.0\lib\netstandard2.0\WebDriver.Support.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebDriverManager, Version=2.17.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebDriverManager.2.17.5\lib\net472\WebDriverManager.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="packages\ETQAMobileFramework.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages\Bogus.dll" />
+    <Content Include="packages\RestSharp.dll" />
+    <Content Include="\\nyp-etqaro1-cj\AutomationShared\TAMPA\SeleniumProjects\Drivers\chromedriver.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="\\nyp-etqaro1-cj\AutomationShared\TAMPA\SeleniumProjects\Drivers\msedgedriver.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\CSW.dll" />
+    <Content Include="bin\Debug\CSW.pdb" />
+    <Content Include="packages\Common.Logging.3.4.1\lib\net35\Common.Logging.dll" />
+    <Content Include="packages\Common.Logging.3.4.1\lib\net35\Common.Logging.pdb" />
+    <Content Include="packages\Common.Logging.3.4.1\lib\net35\Common.Logging.xml" />
+    <Content Include="packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll" />
+    <Content Include="packages\Common.Logging.3.4.1\lib\net40\Common.Logging.pdb" />
+    <Content Include="packages\Common.Logging.3.4.1\lib\net40\Common.Logging.xml" />
+    <Content Include="packages\Common.Logging.3.4.1\lib\netstandard1.3\Common.Logging.dll" />
+    <Content Include="packages\Common.Logging.3.4.1\lib\netstandard1.3\Common.Logging.pdb" />
+    <Content Include="packages\Common.Logging.3.4.1\lib\netstandard1.3\Common.Logging.xml" />
+    <Content Include="packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll" />
+    <Content Include="packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.pdb" />
+    <Content Include="packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.XML" />
+    <Content Include="packages\Common.Logging.Core.3.4.1\lib\netstandard1.0\Common.Logging.Core.dll" />
+    <Content Include="packages\Common.Logging.Core.3.4.1\lib\netstandard1.0\Common.Logging.Core.pdb" />
+    <Content Include="packages\Common.Logging.Core.3.4.1\lib\netstandard1.0\Common.Logging.Core.xml" />
+    <Content Include="packages\Common.Logging.Core.3.4.1\lib\portable-win+net40+sl40+wp7+wpa81\Common.Logging.Core.dll" />
+    <Content Include="packages\Common.Logging.Core.3.4.1\lib\portable-win+net40+sl40+wp7+wpa81\Common.Logging.Core.pdb" />
+    <Content Include="packages\Common.Logging.Core.3.4.1\lib\portable-win+net40+sl40+wp7+wpa81\Common.Logging.Core.XML" />
+    <Content Include="packages\CsvHelper.dll" />
+    <Content Include="packages\ETQAMobileFramework.dll" />
+    <Content Include="packages\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="packages\itext7.7.1.16\ITSC-avatar.png" />
+    <Content Include="packages\itext7.7.1.16\lib\net45\itext.barcodes.dll" />
+    <Content Include="packages\itext7.7.1.16\lib\net45\itext.barcodes.xml" />
+    <Content Include="packages\itext7.7.1.16\lib\net45\itext.forms.dll" />
+    <Content Include="packages\itext7.7.1.16\lib\net45\itext.forms.xml" />
+    <Content Include="packages\itext7.7.1.16\lib\net45\itext.io.dll" />
+    <Content Include="packages\itext7.7.1.16\lib\net45\itext.io.xml" />
+    <Content Include="packages\itext7.7.1.16\lib\net45\itext.kernel.dll" />
+    <Content Include="packages\itext7.7.1.16\lib\net45\itext.kernel.xml" />
+    <Content Include="packages\itext7.7.1.16\lib\net45\itext.layout.dll" />
+    <Content Include="packages\itext7.7.1.16\lib\net45\itext.layout.xml" />
+    <Content Include="packages\itext7.7.1.16\lib\net45\itext.pdfa.dll" />
+    <Content Include="packages\itext7.7.1.16\lib\net45\itext.pdfa.xml" />
+    <Content Include="packages\itext7.7.1.16\lib\net45\itext.sign.dll" />
+    <Content Include="packages\itext7.7.1.16\lib\net45\itext.sign.xml" />
+    <Content Include="packages\itext7.7.1.16\lib\net45\itext.styledxmlparser.dll" />
+    <Content Include="packages\itext7.7.1.16\lib\net45\itext.styledxmlparser.xml" />
+    <Content Include="packages\itext7.7.1.16\lib\net45\itext.svg.dll" />
+    <Content Include="packages\itext7.7.1.16\lib\net45\itext.svg.xml" />
+    <Content Include="packages\itext7.7.1.16\lib\netstandard2.0\itext.barcodes.dll" />
+    <Content Include="packages\itext7.7.1.16\lib\netstandard2.0\itext.barcodes.xml" />
+    <Content Include="packages\itext7.7.1.16\lib\netstandard2.0\itext.forms.dll" />
+    <Content Include="packages\itext7.7.1.16\lib\netstandard2.0\itext.forms.xml" />
+    <Content Include="packages\itext7.7.1.16\lib\netstandard2.0\itext.io.dll" />
+    <Content Include="packages\itext7.7.1.16\lib\netstandard2.0\itext.io.xml" />
+    <Content Include="packages\itext7.7.1.16\lib\netstandard2.0\itext.kernel.dll" />
+    <Content Include="packages\itext7.7.1.16\lib\netstandard2.0\itext.kernel.xml" />
+    <Content Include="packages\itext7.7.1.16\lib\netstandard2.0\itext.layout.dll" />
+    <Content Include="packages\itext7.7.1.16\lib\netstandard2.0\itext.layout.xml" />
+    <Content Include="packages\itext7.7.1.16\lib\netstandard2.0\itext.pdfa.dll" />
+    <Content Include="packages\itext7.7.1.16\lib\netstandard2.0\itext.pdfa.xml" />
+    <Content Include="packages\itext7.7.1.16\lib\netstandard2.0\itext.sign.dll" />
+    <Content Include="packages\itext7.7.1.16\lib\netstandard2.0\itext.sign.xml" />
+    <Content Include="packages\itext7.7.1.16\lib\netstandard2.0\itext.styledxmlparser.dll" />
+    <Content Include="packages\itext7.7.1.16\lib\netstandard2.0\itext.styledxmlparser.xml" />
+    <Content Include="packages\itext7.7.1.16\lib\netstandard2.0\itext.svg.dll" />
+    <Content Include="packages\itext7.7.1.16\lib\netstandard2.0\itext.svg.xml" />
+    <Content Include="packages\Microsoft.Bcl.AsyncInterfaces.dll" />
+    <Content Include="packages\Microsoft.Bcl.HashCode.dll" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\dotnet_library_license.txt" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\lib\netcore50\Microsoft.CSharp.dll" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\lib\netstandard1.3\Microsoft.CSharp.dll" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\ref\netcore50\de\Microsoft.CSharp.xml" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\ref\netcore50\es\Microsoft.CSharp.xml" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\ref\netcore50\fr\Microsoft.CSharp.xml" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\ref\netcore50\it\Microsoft.CSharp.xml" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\ref\netcore50\ja\Microsoft.CSharp.xml" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\ref\netcore50\ko\Microsoft.CSharp.xml" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\ref\netcore50\Microsoft.CSharp.dll" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\ref\netcore50\Microsoft.CSharp.xml" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\ref\netcore50\ru\Microsoft.CSharp.xml" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\ref\netcore50\zh-hans\Microsoft.CSharp.xml" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\ref\netcore50\zh-hant\Microsoft.CSharp.xml" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\ref\netstandard1.0\de\Microsoft.CSharp.xml" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\ref\netstandard1.0\es\Microsoft.CSharp.xml" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\ref\netstandard1.0\fr\Microsoft.CSharp.xml" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\ref\netstandard1.0\it\Microsoft.CSharp.xml" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\ref\netstandard1.0\ja\Microsoft.CSharp.xml" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\ref\netstandard1.0\ko\Microsoft.CSharp.xml" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\ref\netstandard1.0\Microsoft.CSharp.dll" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\ref\netstandard1.0\Microsoft.CSharp.xml" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\ref\netstandard1.0\ru\Microsoft.CSharp.xml" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\ref\netstandard1.0\zh-hans\Microsoft.CSharp.xml" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\ref\netstandard1.0\zh-hant\Microsoft.CSharp.xml" />
+    <Content Include="packages\Microsoft.CSharp.4.0.1\ThirdPartyNotices.txt" />
+    <Content Include="packages\Microsoft.CSharp.dll" />
+    <Content Include="packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll" />
+    <Content Include="packages\Microsoft.Office.Interop.Excel.dll" />
+    <Content Include="packages\Microsoft.VisualStudio.TestPlatform.TestFramework.dll" />
+    <Content Include="packages\Microsoft.Win32.Registry.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\netcoreapp1.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\uap10.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\cs\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\cs\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\de\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\de\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\de\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\es\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\es\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\es\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\fr\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\fr\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\it\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\it\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\it\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\ja\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\ja\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\ko\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\ko\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\Microsoft.VisualStudio.TestPlatform.TestFramework.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\pl\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\pl\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\pt\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\pt\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\ru\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\ru\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\tr\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\tr\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\zh-Hans\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\zh-Hans\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\zh-Hant\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\zh-Hant\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.1.3.2\build\_common\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\de\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\de\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\es\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\es\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\it\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\it\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.XML" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.XML" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\net45\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\de\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\de\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\es\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\es\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\it\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\it\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\Microsoft.VisualStudio.TestPlatform.TestFramework.dll" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.XML" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\Microsoft.VisualStudio.TestPlatform.TestFramework.XML" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\de\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\de\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\es\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\es\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\it\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\it\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.dll" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.XML" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.XML" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.1.3.2\lib\uap10.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\net20\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\net20\Newtonsoft.Json.pdb" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\net20\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\net35\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\net35\Newtonsoft.Json.pdb" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\net35\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\net40\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\net40\Newtonsoft.Json.pdb" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\net40\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.pdb" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\netstandard1.0\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\netstandard1.0\Newtonsoft.Json.pdb" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\netstandard1.0\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\netstandard1.3\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\netstandard1.3\Newtonsoft.Json.pdb" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\netstandard1.3\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\netstandard2.0\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\netstandard2.0\Newtonsoft.Json.pdb" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\netstandard2.0\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\portable-net40+sl5+win8+wp8+wpa81\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\portable-net40+sl5+win8+wp8+wpa81\Newtonsoft.Json.pdb" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\portable-net40+sl5+win8+wp8+wpa81\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.pdb" />
+    <Content Include="packages\Newtonsoft.Json.12.0.1\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.dll" />
+    <Content Include="packages\NUnit.2.6.3\lib\nunit.framework.dll" />
+    <Content Include="packages\NUnit.2.6.3\lib\nunit.framework.xml" />
+    <Content Include="packages\NUnit.2.6.3\license.txt" />
+    <Content Include="packages\nunit.framework.dll" />
+    <Content Include="packages\nunit.framework.xml" />
+    <Content Include="packages\NUnitTestAdapter.2.3.0\build\Mono.Cecil.dll" />
+    <Content Include="packages\NUnitTestAdapter.2.3.0\build\Mono.Cecil.Mdb.dll" />
+    <Content Include="packages\NUnitTestAdapter.2.3.0\build\Mono.Cecil.Pdb.dll" />
+    <Content Include="packages\NUnitTestAdapter.2.3.0\build\Mono.Cecil.Rocks.dll" />
+    <Content Include="packages\NUnitTestAdapter.2.3.0\build\nunit.core.dll" />
+    <Content Include="packages\NUnitTestAdapter.2.3.0\build\nunit.core.interfaces.dll" />
+    <Content Include="packages\NUnitTestAdapter.2.3.0\build\nunit.util.dll" />
+    <Content Include="packages\NUnitTestAdapter.2.3.0\build\NUnit.VisualStudio.TestAdapter.dll" />
+    <Content Include="packages\NUnitTestAdapter.2.3.0\LICENSE.txt" />
+    <Content Include="packages\OpenDialogWindowHandler.dll" />
+    <Content Include="packages\PasswordDecrypter.dll" />
+    <Content Include="packages\Portable.BouncyCastle.1.8.9\lib\net40\BouncyCastle.Crypto.dll" />
+    <Content Include="packages\Portable.BouncyCastle.1.8.9\lib\net40\BouncyCastle.Crypto.xml" />
+    <Content Include="packages\Portable.BouncyCastle.1.8.9\lib\netstandard2.0\BouncyCastle.Crypto.dll" />
+    <Content Include="packages\Portable.BouncyCastle.1.8.9\lib\netstandard2.0\BouncyCastle.Crypto.xml" />
+    <Content Include="packages\RestSharp.106.2.1\lib\net452\RestSharp.dll" />
+    <Content Include="packages\RestSharp.106.2.1\lib\netstandard2.0\RestSharp.dll" />
+    <Content Include="packages\Selenium.Support.3.5.1\lib\net35\WebDriver.Support.dll" />
+    <Content Include="packages\Selenium.Support.3.5.1\lib\net35\WebDriver.Support.xml" />
+    <Content Include="packages\Selenium.Support.3.5.1\lib\net40\WebDriver.Support.dll" />
+    <Content Include="packages\Selenium.Support.3.5.1\lib\net40\WebDriver.Support.xml" />
+    <Content Include="packages\Selenium.WebDriver.3.5.1\lib\net35\WebDriver.dll" />
+    <Content Include="packages\Selenium.WebDriver.3.5.1\lib\net35\WebDriver.xml" />
+    <Content Include="packages\Selenium.WebDriver.3.5.1\lib\net40\WebDriver.dll" />
+    <Content Include="packages\Selenium.WebDriver.3.5.1\lib\net40\WebDriver.xml" />
+    <Content Include="packages\SeleniumExtras.PageObjects.dll" />
+    <Content Include="packages\SeleniumExtras.WaitHelpers.dll" />
+    <Content Include="packages\Spire.PDF.3.9.124\lib\net20\Spire.License.dll" />
+    <Content Include="packages\Spire.PDF.3.9.124\lib\net20\Spire.License.xml" />
+    <Content Include="packages\Spire.PDF.3.9.124\lib\net20\Spire.Pdf.dll" />
+    <Content Include="packages\Spire.PDF.3.9.124\lib\net20\Spire.Pdf.XML" />
+    <Content Include="packages\Spire.PDF.3.9.124\lib\net35\Spire.License.dll" />
+    <Content Include="packages\Spire.PDF.3.9.124\lib\net35\Spire.License.xml" />
+    <Content Include="packages\Spire.PDF.3.9.124\lib\net35\Spire.Pdf.dll" />
+    <Content Include="packages\Spire.PDF.3.9.124\lib\net35\Spire.Pdf.XML" />
+    <Content Include="packages\Spire.PDF.3.9.124\lib\net40-client\Spire.License.dll" />
+    <Content Include="packages\Spire.PDF.3.9.124\lib\net40-client\Spire.License.xml" />
+    <Content Include="packages\Spire.PDF.3.9.124\lib\net40-client\Spire.Pdf.dll" />
+    <Content Include="packages\Spire.PDF.3.9.124\lib\net40-client\Spire.Pdf.XML" />
+    <Content Include="packages\Spire.PDF.3.9.124\lib\net40\Spire.License.dll" />
+    <Content Include="packages\Spire.PDF.3.9.124\lib\net40\Spire.License.xml" />
+    <Content Include="packages\Spire.PDF.3.9.124\lib\net40\Spire.Pdf.dll" />
+    <Content Include="packages\Spire.PDF.3.9.124\lib\net40\Spire.Pdf.XML" />
+    <Content Include="packages\System.Buffers.dll" />
+    <Content Include="packages\System.Memory.dll" />
+    <Content Include="packages\System.Numerics.Vectors.dll" />
+    <Content Include="packages\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="packages\System.Security.AccessControl.dll" />
+    <Content Include="packages\System.Security.Principal.Windows.dll" />
+    <Content Include="packages\System.Text.Encoding.CodePages.dll" />
+    <Content Include="packages\System.Text.Encodings.Web.dll" />
+    <Content Include="packages\System.Text.Json.dll" />
+    <Content Include="packages\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="packages\System.ValueTuple.dll" />
+    <Content Include="packages\v5_ReadMe.txt" />
+    <Content Include="packages\WebDriver.dll" />
+    <Content Include="packages\WebDriver.Support.dll" />
+    <Content Include="packages\WebDriverManager.dll" />
+    <Content Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Selenium.WebDriver.4.27.0\build\Selenium.WebDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.4.27.0\build\Selenium.WebDriver.targets')" />
+</Project>
